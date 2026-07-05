@@ -208,7 +208,28 @@
     .combo-desc{font-size:12px;color:var(--ink2);line-height:1.7;margin-bottom:10px}
     .combo-reason{font-size:13px;color:var(--ink2);line-height:1.75;margin-bottom:14px}
     .insta-now{background:#fdf3fa;border-radius:10px;padding:14px;font-size:12px;color:var(--ink2);line-height:1.7}
-    .insta-now .lbl{font-size:12px;font-weight:800;color:#c9439b;margin-bottom:6px;display:flex;align-items:center;gap:6px}
+
+    /* 難しそうかも…からの誘導バナー */
+    .pivot-banner{background:linear-gradient(135deg,#3b2f09,#5a4413);border-radius:14px;padding:16px 20px;text-align:center;margin-bottom:12px}
+    .pivot-eyebrow{font-size:11px;font-weight:800;color:var(--acl);letter-spacing:1px;margin-bottom:6px}
+    .pivot-text{font-size:15px;font-weight:800;color:#fff;line-height:1.6}
+
+    /* SNSアフィリエイトの簡単さリスト */
+    .ease-list{background:#fdf3fa;border-radius:10px;padding:14px 16px;margin:12px 0}
+    .ease-title{font-size:11px;font-weight:800;color:#c9439b;margin-bottom:8px}
+    .ease-list ul{list-style:none;display:flex;flex-direction:column;gap:8px}
+    .ease-list li{display:flex;gap:8px;align-items:flex-start;font-size:12px;color:var(--ink2);line-height:1.6}
+    .ease-list li::before{content:'✓';flex-shrink:0;color:#c9439b;font-weight:900;background:#fff;width:18px;height:18px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:11px;margin-top:1px}
+
+    /* インスタ推し・特大見出し */
+    .insta-big{text-align:center;padding:18px 10px;margin:12px 0}
+    .insta-big-eyebrow{font-size:11px;font-weight:800;color:var(--ink3);letter-spacing:1px;margin-bottom:8px}
+    .insta-big-headline{font-size:23px;font-weight:800;color:var(--ink);line-height:1.5}
+    .insta-big-headline span{background:linear-gradient(90deg,#f97e3f,#e5324e,#c9439b,#8a4fce);-webkit-background-clip:text;background-clip:text;color:transparent}
+
+    /* ヒミツの誘導 */
+    .secret-hook{background:var(--ink);border-radius:12px;padding:18px 20px;text-align:center;color:#fff;font-size:14px;font-weight:700;line-height:1.8;margin-top:14px}
+    .secret-hook strong{color:var(--acl)}
 
     /* CTA */
     .cta-box{background:#fffaf0;border-radius:16px;padding:0 0 22px;color:var(--ink);margin:24px 0;text-align:center;position:relative;overflow:hidden;border:1.5px solid var(--paperd)}
@@ -636,12 +657,12 @@
                   <div id="r-merit"></div>
                 </div>
 
+                <div class="fit-box" id="r-fit"></div>
+
                 <div class="job-section">
                   <h4>先に知っておきたいこと</h4>
                   <div id="r-demerit"></div>
                 </div>
-
-                <div class="fit-box" id="r-fit"></div>
               </div>
             </div>
           </div>
@@ -653,6 +674,10 @@
           <div class="chat-col">
             <div class="chat-name">ちこ</div>
             <div class="chat-bubble">
+              <div class="pivot-banner">
+                <div class="pivot-eyebrow">こんな時は</div>
+                <div class="pivot-text">「難しそうかも…」と思ったあなたに<br>おすすめはこちら！</div>
+              </div>
               <div class="combo-box">
                 <div class="combo-head">
                   <div class="ig-badge">
@@ -665,9 +690,23 @@
                 </div>
                 <div class="combo-desc" id="sa-desc"></div>
                 <div class="combo-reason" id="r-combo"></div>
+
+                <div class="ease-list">
+                  <div class="ease-title">SNSアフィリエイトが簡単な理由</div>
+                  <ul id="r-sa-merit"></ul>
+                </div>
+
+                <div class="insta-big">
+                  <div class="insta-big-eyebrow">SNSアフィリエイトの中でも</div>
+                  <div class="insta-big-headline">今いちばんアツいのは<br><span>Instagram</span>です</div>
+                </div>
                 <div class="insta-now">
-                  <div class="lbl">今いちばんアツいのはInstagramです</div>
                   <div id="r-instanow"></div>
+                </div>
+
+                <div class="secret-hook">
+                  そのインスタで初心者からでも伸ばして<br><strong>収入の柱</strong>にできる方法があります！<br>
+                  そのヒミツの全貌は👇の個別相談会で<br>お伝えします！！
                 </div>
               </div>
             </div>
@@ -714,7 +753,7 @@ const JOBS = {
     desc:'センスや丁寧さを活かしたいあなたに合う仕事です。チラシやインスタ投稿、YouTubeサムネなどをCanvaで制作します。',
     tags:['初期費用ゼロ','月3〜15万','スマホOK','センス活かせる'],
     what:['Instagram投稿画像、YouTubeサムネ、バナー広告などを制作','クライアントの要望をヒアリングしてラフ→提出','1案件500〜5,000円が相場で、慣れると1日数本制作できる'],
-    merit:['Canva無料版でほぼ完結、初期費用ゼロ','単発案件が多く、副業初心者でもすぐ案件が取れる','テンプレ販売にすれば寝てる間も売れる仕組みに育てられる'],
+    merit:['Canva無料版でほぼ完結、初期費用ゼロ','単発案件が多く、副業初心者でもすぐ案件が取れる'],
     demerit:[
       {pain:'単価が低めで、月10万を超えるには本数が必要', cure:'最初の3ヶ月で案件に慣れて、4ヶ月目から単価交渉していくと着実に上がります'},
       {pain:'"Canvaなら誰でもできる"と思われがち', cure:'特定ジャンルに絞れば一気に専門家ポジションが取れます'}
@@ -729,7 +768,7 @@ const JOBS = {
     desc:'コツコツ型で丁寧な作業が得意なあなたに合う仕事です。AIに手伝ってもらいながら、企業の事務作業を代行します。',
     tags:['安定型','月3〜20万','コツコツ向き','AIで時短'],
     what:['名簿・資料整理などのデータ入力業務','ChatGPT等を使って作業を時短しながら対応','慣れれば複数案件を並行してこなせる'],
-    merit:['特別なセンスがなくても始めやすい','丁寧さ・正確さがそのまま評価につながる','AIを使えば同じ時間でこなせる件数が増える'],
+    merit:['特別なセンスがなくても始めやすい','丁寧さ・正確さがそのまま評価につながる'],
     demerit:[
       {pain:'単価の上限が低めで、大きく伸ばしにくい', cure:'AI活用で処理速度を上げれば、実質の時給は着実に上げられます'},
       {pain:'単調な作業が続くので飽きる人もいる', cure:'複数ジャンルを掛け持ちすると変化が出て続けやすくなります'}
@@ -744,7 +783,7 @@ const JOBS = {
     desc:'文章で伝えるのが得意なあなたに合う仕事です。企業サイトやブログ記事、商品説明などを執筆します。',
     tags:['今すぐ始めやすい','月2〜20万','文章好きに◎','実績で高単価'],
     what:['指定テーマの記事を3,000〜5,000字で執筆','文字単価0.5円〜（初心者）から実績で単価アップ','SEOライティングやセールスライティングで高単価も狙える'],
-    merit:['今日から始められる参入ハードルの低さ','実績が積み上がれば時給5,000円超えも見えてくる','副業から始めて本業化する人も多い'],
+    merit:['今日から始められる参入ハードルの低さ','実績が積み上がれば時給5,000円超えも見えてくる'],
     demerit:[
       {pain:'初心者の文字単価だと時給が低くなりがち', cure:'最初の数記事は実績作りと割り切ると、そこから単価が上がっていきます'},
       {pain:'記事を量産するルーティンに飽きる人もいる', cure:'好きなジャンルを選べば、書きながら知識も増える楽しさがあります'}
@@ -759,7 +798,7 @@ const JOBS = {
     desc:'映像や表現が好きなあなたに合う仕事です。YouTubeやTikTokの動画を編集します。',
     tags:['高単価◎','月5〜30万','需要急増中','CapCut無料'],
     what:['カット編集・テロップ・効果音・サムネまで一括対応','長尺YouTube1本5,000〜20,000円、ショート1本500〜2,000円','CapCut（スマホ）やPremiere Proなどを使用'],
-    merit:['単価が高く、月10〜30万到達者も多い','一度学べばスキルが廃れにくい','チャンネル運営や台本制作にも横展開できる'],
+    merit:['単価が高く、月10〜30万到達者も多い','一度学べばスキルが廃れにくい'],
     demerit:[
       {pain:'習得に2〜3ヶ月の学習時間が必要', cure:'CapCutならスマホで完結、無料講座も豊富なので最初の1本は1週間で作れます'},
       {pain:'長時間PCに向かう作業で疲れやすい', cure:'作業ペースが整えば、慣れるほど1本あたりの時間は短くなっていきます'}
@@ -774,7 +813,7 @@ const JOBS = {
     desc:'モノ作りや丁寧な暮らしが好きなあなたに合う仕事です。ハンドメイド品の販売やスキマ時間の物販に取り組みます。',
     tags:['自分のペース◎','月1〜15万','スキマ時間OK','好きを活かせる'],
     what:['ハンドメイド作品をBASEやメルカリで販売','スキマ時間で仕入れ・出品作業を行う','写真や紹介文で魅力を伝える'],
-    merit:['自分のペースで進められる','初期費用を抑えて始められる','好きなことがそのまま収入につながる'],
+    merit:['自分のペースで進められる','好きなことがそのまま収入につながる'],
     demerit:[
       {pain:'収入の天井が低くなりがち', cure:'単発の販売だけでなく、ファンがつく発信と組み合わせると継続収入に育てやすくなります'},
       {pain:'梱包・発送など地味な作業も発生する', cure:'慣れれば作業時間は短縮できるので、最初の数回だけ乗り越えれば大丈夫です'}
@@ -1186,9 +1225,9 @@ function renderResult(snap){
   document.getElementById('r-desc').textContent = mj.desc;
   document.getElementById('r-tags').innerHTML = mj.tags.map(t => `<span class="tag">${t}</span>`).join('');
   document.getElementById('r-what').innerHTML = mj.what.map(t => `<div class="job-li"><span>${t}</span></div>`).join('');
-  document.getElementById('r-merit').innerHTML = mj.merit.map(t => `<div class="job-li"><span>${t}</span></div>`).join('');
+  document.getElementById('r-merit').innerHTML = mj.merit.slice(0,2).map(t => `<div class="job-li"><span>${t}</span></div>`).join('');
   document.getElementById('r-demerit').innerHTML = mj.demerit.map(d => `
-    <div class="job-li"><span><strong>${d.pain}</strong><br><span style="color:var(--ink2);font-size:11px;line-height:1.6">→ ${d.cure}</span></span></div>
+    <div class="job-li"><span><strong>${d.pain}</strong></span></div>
   `).join('');
   document.getElementById('r-fit').innerHTML = `<strong>ちこより：</strong>${mj.fitReason}`;
 
@@ -1196,6 +1235,7 @@ function renderResult(snap){
   document.getElementById('sa-name').textContent = sa.name;
   document.getElementById('sa-desc').textContent = sa.desc;
   document.getElementById('r-combo').textContent = mj.comboWithInsta || '';
+  document.getElementById('r-sa-merit').innerHTML = (sa.merit||[]).map(t => `<li>${t}</li>`).join('');
   document.getElementById('r-instanow').textContent = sa.whyInstaNow || '';
 
   showPage('result');
