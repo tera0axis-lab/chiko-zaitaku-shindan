@@ -705,23 +705,9 @@ const STORAGE_KEY = 'chiko_zaitaku_shindan_v2';
 const LINE_URL = 'https://utage-system.com/line/open/4oJTlwScEmAQ?mtid=TDiSzaGXkGvj';
 const WEBHOOK_URL = ''; // TODO: データ記録用のGoogle Apps Script Webhook URLが決まったら差し替え
 
-// ===== 職種マスタ（6つの本命候補 + SNSアフィリエイトは固定枠） =====
+// ===== 職種マスタ（5つの本命候補 + SNSアフィリエイトは固定枠） =====
+// ※SNS運用代行は「プラスで狙い目」のインスタと区別がつきにくいため対象外
 const JOBS = {
-  sns: {
-    emoji:'📱', name:'SNS運用代行',
-    short:'企業やお店のインスタ・SNSを代わりに運用するお仕事',
-    desc:'人とのやり取りが好きで、頼られると力を発揮するあなたにハマりやすい仕事なんですよね。お店や個人事業主のSNSを任されて、投稿の企画から運用まで担当します。',
-    tags:['継続案件◎','月3〜30万','在宅完結','需要急増中'],
-    what:['企業や個人事業主のインスタ投稿を企画から作成まで担当','月◯本の投稿、ストーリーズ更新、リール作成が主な業務','クライアントとオンラインでやり取りしながら進める'],
-    merit:['月額契約が基本なので、収入が読みやすい','スマホ1台・Canvaがあれば始められる','実績が積み上がれば複数社を掛け持ちして月30万も見えてくる'],
-    demerit:[
-      {pain:'最初の1社を獲得するまで時間がかかりやすい', cure:'まずは知人のお店や身近な事業から月1万円で受けて、実績を作るのが定番のルートです'},
-      {pain:'クライアントとのやり取りに気を遣う場面もある', cure:'最初に運用ルールを決めておけば、毎日連絡しなくても回る形が作れます'}
-    ],
-    firstStep:'まず<strong>自分の練習用インスタを1個作って、投稿を3枚作ってみる</strong>。今日できます。',
-    fitReason:'人の話を聞いたり、頼まれごとに応えるのが得意なあなたには、まさにぴったりの働き方なんですよね。任される安心感の中で力を発揮できるタイプです。',
-    comboWithInsta:'ただSNS運用代行は「代行」なので、あくまで人のアカウントを育てる仕事なんですよね。そこに自分自身のインスタ発信を組み合わせると、代行で収入を得ながら自分のブランドも育てられるので、将来的な資産にもなっていきます。'
-  },
   canva: {
     emoji:'🎨', name:'Canvaデザイン',
     short:'無料ツール「Canva」で画像・バナーを作るお仕事',
@@ -734,8 +720,8 @@ const JOBS = {
       {pain:'"Canvaなら誰でもできる"と思われがち', cure:'特定ジャンルに絞れば一気に専門家ポジションが取れます'}
     ],
     firstStep:'まず<strong>Canvaに登録して、自分のインスタ用の投稿を1枚作ってみる</strong>。10分で完了します。',
-    fitReason:'センスや丁寧さを活かしたいあなたにはぴったりの仕事なんですよね。手を動かして形にするのが好きなタイプに向いています。',
-    comboWithInsta:'ただCanvaデザインは単発の制作案件が多く、単価も上がりにくいのが正直なところ。自分のインスタで作品を発信していくと、フォロワーが増えるほど指名や単価アップにもつながりやすくなります。'
+    fitReason:'手を動かして形にするのが好きなあなたにぴったりの仕事です。',
+    comboWithInsta:'ただ、作った作品を見てもらう場所がないと、次の依頼にはつながりにくいんですよね。だからこそ、自分の作品を発信できる場所を持っておくと、そこから仕事の幅がぐっと広がっていきます。'
   },
   dataAI: {
     emoji:'💻', name:'データ入力×AI活用',
@@ -749,8 +735,8 @@ const JOBS = {
       {pain:'単調な作業が続くので飽きる人もいる', cure:'複数ジャンルを掛け持ちすると変化が出て続けやすくなります'}
     ],
     firstStep:'まず<strong>ChatGPT（無料版でOK）を開いて、簡単な作業を1つ手伝ってもらう</strong>。10分で完了します。',
-    fitReason:'コツコツ続けるのが得意で、丁寧な作業を苦だと感じないあなたにぴったりの仕事です。',
-    comboWithInsta:'ただデータ入力は単価の天井が低めで、大きく収入を伸ばしにくいのが正直なところ。インスタ発信を組み合わせれば、あなたのコツコツ続けられる丁寧さがそのまま「信頼される発信者」としての強みになります。'
+    fitReason:'コツコツ続けるのが得意なあなたにぴったりの仕事です。',
+    comboWithInsta:'ただ、黙々と作業するだけだと、あなたの丁寧さや工夫が周りに伝わりにくいのが正直なところ。だからこそ、その様子を発信できる場所を持っておくと、「信頼される人」として見てもらえるようになります。'
   },
   writing: {
     emoji:'✍️', name:'Webライティング',
@@ -764,8 +750,8 @@ const JOBS = {
       {pain:'記事を量産するルーティンに飽きる人もいる', cure:'好きなジャンルを選べば、書きながら知識も増える楽しさがあります'}
     ],
     firstStep:'まず<strong>「note」に自分のテーマで1記事書いてみる</strong>。これがそのまま実績になります。',
-    fitReason:'文章で人に伝えるのが得意なあなたにはぴったりの仕事なんですよね。書けば書くほど、それがそのまま実績として積み上がっていきます。',
-    comboWithInsta:'ただWebライティングは実力主義な面が強く、最初の低単価期間が長くなりがちです。インスタで自分の発信を育てておくと、ライティングの実績と合わせて「書ける発信者」として案件の幅がぐっと広がります。'
+    fitReason:'文章で伝えるのが得意なあなたにぴったりの仕事です。',
+    comboWithInsta:'ただ、文章力があっても、それを見てもらう場所がなければ実績として気づいてもらえません。だからこそ、書く力を発信の場でも活かしておくと、案件の依頼にもつながりやすくなります。'
   },
   video: {
     emoji:'🎬', name:'動画編集',
@@ -779,8 +765,8 @@ const JOBS = {
       {pain:'長時間PCに向かう作業で疲れやすい', cure:'作業ペースが整えば、慣れるほど1本あたりの時間は短くなっていきます'}
     ],
     firstStep:'まず<strong>CapCutをスマホに入れて、自分のショート動画を1本編集してみる</strong>。1日で完了します。',
-    fitReason:'映像や表現が好きなあなたにはぴったりの仕事です。一度スキルが身につけば、長く求められる力になります。',
-    comboWithInsta:'ただ動画編集は下請けの立ち位置だと単価交渉がしづらいのが悩みどころ。インスタ発信を並行しておくと、自分の名前で仕事を選べる立場に早く近づけます。'
+    fitReason:'映像や表現が好きなあなたにぴったりの仕事です。',
+    comboWithInsta:'ただ、動画編集だけだと、どうしても「頼まれた作業をこなす」立場になりがちなんですよね。だからこそ、自分の発信も持っておくと、自分の名前で仕事を選べる立場に近づいていきます。'
   },
   handmade: {
     emoji:'🧵', name:'ハンドメイド・スキマ物販',
@@ -794,8 +780,8 @@ const JOBS = {
       {pain:'梱包・発送など地味な作業も発生する', cure:'慣れれば作業時間は短縮できるので、最初の数回だけ乗り越えれば大丈夫です'}
     ],
     firstStep:'まず<strong>手持ちのハンドメイド品や不用品を1つ、フリマアプリに出品してみる</strong>。今日できます。',
-    fitReason:'モノ作りや丁寧な暮らしが好きなあなたにはぴったりの働き方です。自分のペースでコツコツ形にしていけます。',
-    comboWithInsta:'ただハンドメイド・物販は単発の売上になりやすく、収入の天井が低くなりがちです。インスタで発信しながら販売すると、単発ではなくファンがついた継続的な収入に育てやすくなります。'
+    fitReason:'モノ作りが好きなあなたにぴったりの働き方です。',
+    comboWithInsta:'ただ、作った作品は、見てもらう人がいないと売上にはつながりません。だからこそ、発信しながら届ける場所を持っておくと、単発の販売がファンのついた継続収入に変わっていきます。'
   },
   snsAffiliate: {
     emoji:'🤖📱', name:'SNSアフィリエイト',
@@ -834,7 +820,7 @@ const MBTI = {
       {lbl:'本質',txt:'人とのつながりの中で本当の力を発揮するタイプ'},
       {lbl:'隠れた才能',txt:'実は"場の温度"を上げる影響力がある'}
     ],
-    bias:{sns:5, dataAI:2, snsAffiliate:3}
+    bias:{dataAI:4, writing:3, snsAffiliate:3}
   },
   EP: {
     code:'EP', name:'ムードメーカータイプ',
@@ -844,7 +830,7 @@ const MBTI = {
       {lbl:'本質',txt:'発信することで一気に伸びるタイプ'},
       {lbl:'隠れた才能',txt:'みんなが気づく前のトレンドを先に感じ取れる'}
     ],
-    bias:{sns:4, canva:2, video:2, snsAffiliate:4}
+    bias:{canva:3, video:3, writing:1, snsAffiliate:4}
   },
   IJ: {
     code:'IJ', name:'在宅職人タイプ',
@@ -912,23 +898,23 @@ const SCORE = {
   q_pc: {
     a:{snsAffiliate:2, handmade:2},
     b:{dataAI:3, writing:2, snsAffiliate:2},
-    c:{sns:4, snsAffiliate:3, writing:2},
-    d:{canva:5, snsAffiliate:3, sns:3},
+    c:{snsAffiliate:3, writing:3, dataAI:2},
+    d:{canva:6, snsAffiliate:3},
     e:{video:5, canva:3, snsAffiliate:2}
   },
   q_time: {
     a:{snsAffiliate:3, handmade:3},
-    b:{sns:3, dataAI:3, snsAffiliate:2},
-    c:{sns:4, video:3, snsAffiliate:2},
+    b:{dataAI:4, snsAffiliate:2, writing:1},
+    c:{video:4, writing:3, snsAffiliate:2},
     d:{video:5, writing:4, snsAffiliate:2},
     e:{handmade:4, snsAffiliate:3, dataAI:2}
   },
   q_work: {
-    a:{dataAI:4, sns:3},
+    a:{dataAI:5, writing:2},
     b:{video:4, snsAffiliate:3},
     c:{canva:3, writing:2, snsAffiliate:2},
-    d:{sns:5, snsAffiliate:3},
-    e:{sns:4, snsAffiliate:2}
+    d:{writing:3, video:3, snsAffiliate:3},
+    e:{writing:3, canva:2, snsAffiliate:2}
   },
   q_ai: {
     pro:{dataAI:6, snsAffiliate:5},
@@ -940,50 +926,50 @@ const SCORE = {
   q_face: {
     no:{writing:3, dataAI:3, handmade:2},
     maybe:{canva:2, writing:2},
-    ok:{sns:2, video:2},
-    yes:{video:3, sns:3}
+    ok:{video:2, canva:2},
+    yes:{video:3, canva:2}
   },
   q_char: {
-    care:{sns:4},
+    care:{writing:3, handmade:2},
     sense:{canva:5},
     write:{writing:5},
     steady:{dataAI:4, handmade:2},
     video:{video:5},
-    trend:{sns:3, snsAffiliate:2}
+    trend:{canva:3, video:2, snsAffiliate:2}
   },
   q_hobby: {
     life:{handmade:4, canva:2},
     info:{dataAI:3, writing:2},
     make:{handmade:5, canva:2},
     watch:{video:4},
-    talk:{sns:4}
+    talk:{writing:3, handmade:2}
   },
   q_dream: {
-    travel:{sns:2, handmade:1},
+    travel:{handmade:2, writing:1},
     kids:{dataAI:2, handmade:2},
     free:{video:2, writing:2},
     skill:{writing:3, dataAI:2},
-    money:{sns:3, snsAffiliate:2}
+    money:{dataAI:2, writing:2, snsAffiliate:2}
   }
 };
 
 const SKILL_TO_JOB = {
   write:{writing:5},
   design:{canva:5},
-  listen:{sns:4},
+  listen:{writing:3},
   org:{dataAI:4},
-  sns:{sns:4},
+  sns:{video:3, canva:2},
   video:{video:5},
-  trend:{sns:3, snsAffiliate:1},
+  trend:{canva:3, video:2, snsAffiliate:1},
   steady:{dataAI:3, handmade:2},
   ai:{dataAI:4, snsAffiliate:3},
   proof:{writing:3},
-  teach:{sns:3},
+  teach:{writing:3},
   data:{dataAI:5},
   photo:{canva:3, handmade:2},
   craft:{handmade:5},
   lang:{writing:2},
-  empathy:{sns:3}
+  empathy:{writing:2, handmade:2}
 };
 
 // ===== ユーティリティ =====
@@ -1204,7 +1190,7 @@ function renderResult(snap){
   document.getElementById('r-demerit').innerHTML = mj.demerit.map(d => `
     <div class="job-li"><span><strong>${d.pain}</strong><br><span style="color:var(--ink2);font-size:11px;line-height:1.6">→ ${d.cure}</span></span></div>
   `).join('');
-  document.getElementById('r-fit').innerHTML = `<strong>${mj.name}</strong>が合っている理由：${mj.fitReason}`;
+  document.getElementById('r-fit').innerHTML = `<strong>ちこより：</strong>${mj.fitReason}`;
 
   // SNSアフィリエイト組み合わせ提案
   document.getElementById('sa-name').textContent = sa.name;
